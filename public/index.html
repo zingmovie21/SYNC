@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNC - Monochrome Music Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <div class="splash-logo">SYNC</div>
+            <div class="splash-subtitle">developed by curseofwitcher</div>
+        </div>
+    </div>
+
+    <div class="app-container" id="appContainer">
+        <div class="room-controls">
+            <button id="createRoomBtn" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Create Room
+            </button>
+            <input type="text" id="roomIdInput" class="custom-input" placeholder="Enter Room ID">
+            <button id="joinRoomBtn" class="btn btn-primary">
+                <i class="fas fa-sign-in-alt"></i> Join Room
+            </button>
+        </div>
+
+        <div class="player-container">
+            <div class="now-playing" id="nowPlaying">
+                <div class="now-playing-title">Select a track</div>
+                <div class="now-playing-artist">-</div>
+            </div>
+
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="time-display">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="player-controls">
+                <button id="shuffleBtn" class="btn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button id="prevBtn" class="btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="playPauseBtn" class="btn btn-primary">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="nextBtn" class="btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="repeatBtn" class="btn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" id="volumeSlider" min="0" max="100" value="100">
+            </div>
+
+            <div class="status-message" id="connectionStatus"></div>
+        </div>
+
+        <div class="playlist" id="playlist">
+            <!-- Playlist items will be added dynamically -->
+        </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+    <script src="app.js"></script>
+</body>
+</html>
